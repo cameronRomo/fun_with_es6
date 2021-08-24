@@ -70,8 +70,16 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map(kitty => {
+      kitty.age += 2;
+      return kitty;
+    }).sort((kittyA, kittyB) => kittyB.age - kittyA.age);
     return result;
+
+    // Annotation:
+    // Take in the array of kitties using .map 
+      // add 2 years onto each of their age properties
+    // Chain on sort prototype to sort each of the kitties by their age from greatest to least
   }
 };
 
