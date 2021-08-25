@@ -202,11 +202,17 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = cakes.map(cake => {
+      let flavorAvailability = {};
+      flavorAvailability['flavor'] = cake.cakeFlavor;
+      flavorAvailability['inStock'] = cake.inStock;
+      return flavorAvailability;
+    });
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Take in the array of cakes with the map method
+      // return a new array with a reformatted object containing just the cakeFlavor property and the number inStock.
   },
 
   onlyInStock() {
