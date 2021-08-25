@@ -102,7 +102,7 @@ const kittyPrompts = {
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
   membersBelongingToClubs() {
-    // Create an object whose keys are the names of people, and whose values are
+    // Create an object thats keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
     // {
     //   Louisa: ['Drama', 'Art'],
@@ -110,11 +110,27 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = clubs.reduce((clubsPerIndividual, club) => {
+      const attendies = club.members;
+      attendies.forEach(person => {
+        if (!clubsPerIndividual[person])
+          clubsPerIndividual[person] = [club.club];
+        else 
+          clubsPerIndividual[person].push(club.club);
+      });
+      return clubsPerIndividual;
+    }, {});
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Take in the clubs array using the reduce prototype (reduce to an object)
+      // take in the members array with the forEach prototype
+        // forEach member if their name is not a key, then create a key with their name and set to an array with the current club as it's first index
+        // if the key with the individual's name already exists, then use the push method to add the club to their clubs array
+        // return the clubsPerIndividual object
+
+
+      
   }
 };
 
