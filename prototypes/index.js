@@ -128,9 +128,6 @@ const clubPrompts = {
         // forEach member if their name is not a key, then create a key with their name and set to an array with the current club as it's first index
         // if the key with the individual's name already exists, then use the push method to add the club to their clubs array
         // return the clubsPerIndividual object
-
-
-      
   }
 };
 
@@ -162,11 +159,19 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.map(module => {
+      const studentBreakdown = {};
+      studentBreakdown['mod'] = module.mod;
+      studentBreakdown['studentsPerInstructor'] = module.students / module.instructors;
+      return studentBreakdown;
+    });
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Take in the array of mods using the map prototype
+      // return a new array containing reformatted objects that have the mod property and a new key of studentsPerInstructor
+      // assign studentsPerInstructor to the value of students / instructors
+      // return the new object
   }
 };
 
